@@ -28,5 +28,5 @@ Unutar demo projekta implementirano je:
 - data pagging
 - podrška za 3 tablice u bazi podataka (klijenti, vrste osiguranja i police)
 - dodatna dorada slanja poruka
-- mogućnost ručnog upravljanja tranakcijama
+- mogućnost ručnog upravljanja transakcijama
 
