@@ -89,12 +89,12 @@ public class ClientController
           sort,
           (includeColumns == null || includeColumns.trim().equals("") ? new ArrayList<String>() : Arrays.asList(includeColumns.split(","))),
           (excludeColumns == null || excludeColumns.trim().equals("") ? new ArrayList<String>() : Arrays.asList(excludeColumns.split(","))));
-  		clients.getMetadata().setDomain(domain);
+  		clients.getMetadata().setDomain(domain == null ? "" : domain);
   	}
   	catch (Exception e)
   	{
   		clients = new CustomData<List<Client>>();
-  		clients.getMetadata().setDomain(domain);
+  		clients.getMetadata().setDomain(domain == null ? "" : domain);
   		
   		MessagesHandler messagesHandler = new MessagesHandler();
   	  messagesHandler.addMessage(

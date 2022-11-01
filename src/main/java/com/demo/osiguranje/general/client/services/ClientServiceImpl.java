@@ -289,7 +289,7 @@ public class ClientServiceImpl implements ClientService
           {
             messagesHandler.addMessages(
                  "com.demo.osiguranje.general.client.ClientServiceImpl.BIU1200",
-                  (clientsList = this.clientDAO.select(1, 1, "name_" + unpivotedClient.getValueAsString("name"), null, null, null)));
+                  (clientsList = this.clientDAO.select(1, 1, "name_" + unpivotedClient.getValueAsString("name"), null, new ArrayList<String>(), new ArrayList<String>())));
           }
           if (clientsList == null || clientsList.getData() == null || clientsList.getData().size() > 0)
           {
@@ -508,7 +508,7 @@ public class ClientServiceImpl implements ClientService
         preparedMessage = ApplicationMessageUtil.prepareMessage("Slog sa id * više ne postoji u bazi podataka.", unpivotedClient.getValueAsLong("clientID"));
         if (unpivotedClient.getValueAsLong("clientID") != null)
         {
-          CustomData<List<Client>> clientsList = this.clientDAO.select(0, 1, "clientID_" + unpivotedClient.getValueAsLong("clientID"), null, null, null);
+          CustomData<List<Client>> clientsList = this.clientDAO.select(0, 1, "clientID_" + unpivotedClient.getValueAsLong("clientID"), null, new ArrayList<String>(), new ArrayList<String>());
           if (clientsList.getData().size() == 0)
           {
             checkPassed = false;
@@ -593,7 +593,7 @@ public class ClientServiceImpl implements ClientService
           {
             messagesHandler.addMessages(
                  "com.demo.osiguranje.general.client.ClientServiceImpl.BIU1200",
-                  (clientsList = this.clientDAO.select(1, 1, "name_" + unpivotedClient.getValueAsString("name") + ",clientID!_" + unpivotedClient.getValueAsLong("clientID"), null, null, null)));
+                  (clientsList = this.clientDAO.select(1, 1, "name_" + unpivotedClient.getValueAsString("name") + ",clientID!_" + unpivotedClient.getValueAsLong("clientID"), null, new ArrayList<String>(), new ArrayList<String>())));
           }
           if (clientsList == null || clientsList.getData() == null || clientsList.getData().size() > 0)
           {
@@ -925,7 +925,7 @@ public class ClientServiceImpl implements ClientService
     {
       messagesHandler.addMessages(
        		"com.demo.osiguranje.general.client.ClientServiceImpl.get.messagesSelect",
-          (fetchedRows = this.clientDAO.select(0, 1, "clientID_" + Long.toString(id), null, null, null)));
+          (fetchedRows = this.clientDAO.select(0, 1, "clientID_" + Long.toString(id), null, new ArrayList<String>(), new ArrayList<String>())));
     }
 
     CustomData<Client> returnRow = new CustomData<Client>();

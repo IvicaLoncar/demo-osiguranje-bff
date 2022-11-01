@@ -340,7 +340,7 @@ public class InsuranceTypeDAOImpl implements InsuranceTypeDAO
             + updateParameters.getColumnFields() 
             + "       datum_azuriranja = localtimestamp, " 
             + "       azurirao = ? " 
-            + " where vrste_osiguranja_id = ?  ", 
+            + " where vrsta_osiguranja_id = ?  ", 
             updateParameters.getColumnValues(),
             updateParameters.getSqlTypes() 
           ); 

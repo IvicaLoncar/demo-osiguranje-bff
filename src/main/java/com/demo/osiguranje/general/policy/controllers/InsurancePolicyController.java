@@ -89,12 +89,12 @@ public class InsurancePolicyController
           sort,
           (includeColumns == null || includeColumns.trim().equals("") ? new ArrayList<String>() : Arrays.asList(includeColumns.split(","))),
           (excludeColumns == null || excludeColumns.trim().equals("") ? new ArrayList<String>() : Arrays.asList(excludeColumns.split(","))));
-  		insurancePolicies.getMetadata().setDomain(domain);
+  		insurancePolicies.getMetadata().setDomain(domain == null ? "" : domain);
   	}
   	catch (Exception e)
   	{
   		insurancePolicies = new CustomData<List<InsurancePolicy>>();
-  		insurancePolicies.getMetadata().setDomain(domain);
+  		insurancePolicies.getMetadata().setDomain(domain == null ? "" : domain);
   		
   		MessagesHandler messagesHandler = new MessagesHandler();
   	  messagesHandler.addMessage(

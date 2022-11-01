@@ -339,7 +339,7 @@ public class InsuranceTypeServiceImpl implements InsuranceTypeService
         preparedMessage = ApplicationMessageUtil.prepareMessage("Slog sa id * više ne postoji u bazi podataka.", unpivotedInsuranceType.getValueAsLong("insuranceTypeID"));
         if (unpivotedInsuranceType.getValueAsLong("insuranceTypeID") != null)
         {
-          CustomData<List<InsuranceType>> insuranceTypesList = this.insuranceTypeDAO.select(0, 1, "insuranceTypeID_" + unpivotedInsuranceType.getValueAsLong("insuranceTypeID"), null, null, null);
+          CustomData<List<InsuranceType>> insuranceTypesList = this.insuranceTypeDAO.select(0, 1, "insuranceTypeID_" + unpivotedInsuranceType.getValueAsLong("insuranceTypeID"), null, new ArrayList<String>(), new ArrayList<String>());
           if (insuranceTypesList.getData().size() == 0)
           {
             checkPassed = false;
@@ -636,7 +636,7 @@ public class InsuranceTypeServiceImpl implements InsuranceTypeService
     {
       messagesHandler.addMessages(
        		"com.demo.osiguranje.general.insuranceType.InsuranceTypeServiceImpl.get.messagesSelect",
-          (fetchedRows = this.insuranceTypeDAO.select(0, 1, "insuranceTypeID_" + Long.toString(id), null, null, null)));
+          (fetchedRows = this.insuranceTypeDAO.select(0, 1, "insuranceTypeID_" + Long.toString(id), null, new ArrayList<String>(), new ArrayList<String>())));
     }
 
     CustomData<InsuranceType> returnRow = new CustomData<InsuranceType>();

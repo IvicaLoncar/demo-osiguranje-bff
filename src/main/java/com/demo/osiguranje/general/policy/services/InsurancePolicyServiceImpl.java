@@ -339,7 +339,7 @@ public class InsurancePolicyServiceImpl implements InsurancePolicyService
         preparedMessage = ApplicationMessageUtil.prepareMessage("Slog sa id * više ne postoji u bazi podataka.", unpivotedInsurancePolicy.getValueAsLong("insurancePolicyID"));
         if (unpivotedInsurancePolicy.getValueAsLong("insurancePolicyID") != null)
         {
-          CustomData<List<InsurancePolicy>> insurancePolicysList = this.insurancePolicyDAO.select(0, 1, "insurancePolicyID_" + unpivotedInsurancePolicy.getValueAsLong("insurancePolicyID"), null, null, null);
+          CustomData<List<InsurancePolicy>> insurancePolicysList = this.insurancePolicyDAO.select(0, 1, "insurancePolicyID_" + unpivotedInsurancePolicy.getValueAsLong("insurancePolicyID"), null, new ArrayList<String>(), new ArrayList<String>());
           if (insurancePolicysList.getData().size() == 0)
           {
             checkPassed = false;
@@ -636,7 +636,7 @@ public class InsurancePolicyServiceImpl implements InsurancePolicyService
     {
       messagesHandler.addMessages(
        		"com.demo.osiguranje.general.insurancePolicy.InsurancePolicyServiceImpl.get.messagesSelect",
-          (fetchedRows = this.insurancePolicyDAO.select(0, 1, "insurancePolicyID_" + Long.toString(id), null, null, null)));
+          (fetchedRows = this.insurancePolicyDAO.select(0, 1, "insurancePolicyID_" + Long.toString(id), null, new ArrayList<String>(), new ArrayList<String>())));
     }
 
     CustomData<InsurancePolicy> returnRow = new CustomData<InsurancePolicy>();
