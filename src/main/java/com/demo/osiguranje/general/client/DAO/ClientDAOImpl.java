@@ -153,6 +153,8 @@ public class ClientDAOImpl implements ClientDAO
 	    			.replace(tableTLA + ".datum_azuriranja", "parsedatetime(formatdatetime(" + tableTLA + ".datum_azuriranja, 'yyyy.MM.dd HH:mm:ss') || ' UTC', 'yyyy.MM.dd HH:mm:ss z') as datum_azuriranja")          
           + "  from klijenti " + tableTLA
           + " where 1 = 1 "
+          + (filterColumns.get("clientID") != null ? "and " + tableTLA + ".klijent_id = ? " : "")
+          + (filterColumns.get("name") != null ? "and upper(" + tableTLA + ".naziv) like '%' || upper(?) || '%'" : "")            
           + "limit ? "
           + "offset ? ";
         

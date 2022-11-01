@@ -23,7 +23,7 @@ public class MethodLoggingAspect {
     @Value("${aspect.logging.packageNameEntriesRemoved}")
     private int packageNameEntriesRemoved;
 	
-	@Before(value = "execution(* com.example.demo.general.*.*.*(..))") // and args(name,empId)")
+	@Before(value = "execution(* com.demo.osiguranje.*.*.*.*.*(..))") // and args(name,empId)")
 	public void beforeAdvice(JoinPoint joinPoint) //, String name, String empId) 
 	{
 		String path = MDC.get("path");
@@ -66,7 +66,7 @@ public class MethodLoggingAspect {
 			formattedMethodName.append((formattedMethodName.toString().equals("") ? "" : ".") + joinPointParts[i]);
 		}
 	
-		LOGGER.info("BEGIN: " + formattedMethodName.toString());
+		LOGGER.info("[ BEGIN ]: " + formattedMethodName.toString());
 		
 //		LOGGER.error("BEFORE:" + joinPointParts.length + "  " + joinPoint.getSignature());
 
@@ -74,7 +74,7 @@ public class MethodLoggingAspect {
 		
 	}
 
-	@After(value = "execution(* com.example.demo.general.*.*.*(..))") // and args(name,empId)")
+	@After(value = "execution(* com.demo.osiguranje.*.*.*.*.*(..))") // and args(name,empId)")
 	public void afterAdvice(JoinPoint joinPoint) //, String name, String empId) 
 	{
 		StringBuilder formattedMethodName = new StringBuilder();
@@ -84,7 +84,7 @@ public class MethodLoggingAspect {
 			formattedMethodName.append((formattedMethodName.toString().equals("") ? "" : ".") + joinPointParts[i]);
 		}
 
-		LOGGER.info("AFTER:" + formattedMethodName.toString());
+		LOGGER.info("[ END ]: " + formattedMethodName.toString());
 
 		//LOGGER.error("Successfully created Employee with name - ");
 		
