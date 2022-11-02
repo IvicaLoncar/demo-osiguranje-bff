@@ -30,3 +30,4 @@ Unutar demo projekta implementirano je:
 - dodatna dorada slanja poruka
 - mogućnost ručnog upravljanja transakcijama
 
+![Alt text](/documentation/Image001.jpg?raw=true "Image 001")
